@@ -17,6 +17,11 @@ const Forms = ({ values, errors, touched, status }) => {
         {touched.email && errors.email && (
           <p className="errors">{errors.email}</p>
         )}
+        <label>Password</label>
+        <Field type="password" name="password" placeholder="Password" />
+        {touched.password && errors.password && (
+          <p className="errors">{errors.password}</p>
+        )}
       </Form>
     </div>
   );
@@ -25,9 +30,16 @@ const Forms = ({ values, errors, touched, status }) => {
 const FormikOnBoardForm = withFormik({
   mapPropsToValues(props) {
     return {
-      species: props.name || ""
+      name: props.name || "",
+      email: props.email || "",
+      password: props.password || ""
     };
-  }
+  },
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().required("Email is required"),
+    password: Yup.string().required("Password is required")
+  })
 })(Forms);
 
 export default FormikOnBoardForm;
