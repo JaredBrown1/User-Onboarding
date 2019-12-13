@@ -24,6 +24,7 @@ const Forms = ({ values, errors, touched, status }) => {
         )}
         <label>Terms Of Service</label>
         <Field type="checkbox" name="terms" />
+        <button type="submit">Submit</button>
       </Form>
     </div>
   );

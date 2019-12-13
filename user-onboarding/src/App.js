@@ -1,5 +1,6 @@
 import React from "react";
 import FormikOnBoardForm from "./Components/Form";
+import "./App.css";
 
 function App() {
   return (
