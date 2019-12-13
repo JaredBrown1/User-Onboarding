@@ -22,6 +22,8 @@ const Forms = ({ values, errors, touched, status }) => {
         {touched.password && errors.password && (
           <p className="errors">{errors.password}</p>
         )}
+        <label>Terms Of Service</label>
+        <Field type="checkbox" name="terms" />
       </Form>
     </div>
   );
@@ -32,7 +34,8 @@ const FormikOnBoardForm = withFormik({
     return {
       name: props.name || "",
       email: props.email || "",
-      password: props.password || ""
+      password: props.password || "",
+      termsofservice: props.terms || false
     };
   },
   validationSchema: Yup.object().shape({
